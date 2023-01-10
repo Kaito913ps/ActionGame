@@ -6,16 +6,24 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement _playerMovement;
-    private NavMeshAgent _agent;
-    void Start()
+  
+    [SerializeField]
+    private int _hp = 200;
+
+    int HP
     {
-        _agent = GetComponent<NavMeshAgent>();
+        get
+        {
+            return _hp;
+        }
+        set
+        {
+            _hp = value;
+        }
     }
 
-    private void Update()
-    {
-        _agent.destination = _playerMovement.transform.position;
-    }
+    
+
+   
 
 }
