@@ -6,11 +6,24 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField]
     private ParticleSystem _kenParticale;
+
+    [SerializeField]
+    private int _attack = 10;
+
+    BoxCollider _boxCollider;
+
+    private void Start()
+    {
+        _boxCollider = GetComponent<BoxCollider>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(TryGetComponent<EnemyController>(out var enemyController))
+        var hit = other.gameObject.GetComponent<IDamagable>();
+        
+        if(hit != null)
         {
-
+            hit.AddDamge(_attack);
         }
     }
+    
 }

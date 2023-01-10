@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            _animator.SetBool("Slash", true);
+            _animator.SetTrigger("Slash 0");
         }
     }
 
@@ -144,6 +144,5 @@ public class PlayerMovement : MonoBehaviour
     void WeaponOFF()
     {
         _WeaponCollider.enabled = false;
-        _animator.SetBool("Slash", false);
     }
 }
