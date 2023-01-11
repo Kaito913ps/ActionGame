@@ -7,7 +7,7 @@ public class MobAttack : MonoBehaviour
 {
     [SerializeField] private float _attackCooldown = 0.5f;
     [SerializeField] private Collider _attackCollider;
-
+    [SerializeField] private int _damage = 10;
     private MobStatus _status;
 
     private void Start()
@@ -37,7 +37,7 @@ public class MobAttack : MonoBehaviour
         if (null == targetMob) 
             return;
 
-        targetMob.Damage(1);
+        targetMob.Damage(_damage);
     }
 
     public void OnAttackFinished()
