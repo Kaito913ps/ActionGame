@@ -19,12 +19,7 @@ public class EnemyMove : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //　プレイヤーの位置を追跡します。
     public void OnDetectObject(Collider collider)
     {
         if(!_state.IsMovale)
@@ -42,7 +37,9 @@ public class EnemyMove : MonoBehaviour
             var hitCount = Physics.RaycastNonAlloc(transform.position, direction, _raycastHits, distance, _raycastLayerMask);
 
             Debug.Log($"hitCount:{hitCount}");
-            if(hitCount == 0)
+
+            //　プレイヤーとの間に障害物がないかチェックする。
+            if (hitCount == 0)
             {
                 _navMeshAgent.isStopped = false;
                 _navMeshAgent.destination = collider.transform.position;

@@ -17,6 +17,7 @@ public class MobAttack : MonoBehaviour
 
     public void AttackIfPossible()
     {
+        // ステータスと衝突したオブジェクトで攻撃可否を判断
         if (!_status.IsAttackable)
             return;
         _status.GoToAttackStateIfPossible();
@@ -33,11 +34,14 @@ public class MobAttack : MonoBehaviour
 
     public void OnHitAttack(Collider collider)
     {
-        var targetMob = collider.GetComponent<MobStatus>();
-        if (null == targetMob) 
-            return;
+        //if(collider != null)
+        //{
+            var targetMob = collider.GetComponent<MobStatus>();
+            if (null == targetMob)
+                return;
 
-        targetMob.Damage(_damage);
+            targetMob.Damage(_damage);
+        //}
     }
 
     public void OnAttackFinished()

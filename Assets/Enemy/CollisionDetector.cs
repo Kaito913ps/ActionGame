@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
@@ -14,6 +12,11 @@ public class CollisionDetector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         onTriggerEnter.Invoke(other);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        onTriggerStay.Invoke(other);
     }
     [Serializable]
     public class TriggerEvent:UnityEvent<Collider>
